@@ -18,11 +18,15 @@ export function Hero() {
         style={{ objectFit: 'cover' }}
         loop
         muted={muted}
-        className="absolute z-[-10] w-screen min-w-full h-screen"
+        className="absolute z-[-10] hidden md:block w-screen min-w-full h-screen"
       >
         <source src={BackgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <img
+        src="https://m.media-amazon.com/images/M/MV5BZDc2NTg5YWUtZGZlZC00Y2VmLTgwZjEtZDUxM2QyNGRmYjZlXkEyXkFqcGdeQWFybm8@._V1_QL75_UX500_CR0,0,500,281_.jpg"
+        className="absolute z-[-10] md:hidden w-screen min-w-full h-screen object-cover"
+      />
       <div className="hero min-h-screen">
         <div className="hero-overlay bg-opacity-60" />
         <div className="text-center hero-content text-neutral-content">
@@ -38,7 +42,7 @@ export function Hero() {
           </div>
         </div>
         <div className="absolute z-10 bottom-3 right-3">
-          <button onClick={() => setMuted(!muted)} className="rounded-full animate-pulse border-white border-4">
+          <button onClick={() => setMuted(!muted)} className="rounded-full hidden md:block animate-pulse border-white border-4">
             <div className="p-3 text-white">
               <MutedSVG muted={muted} />
             </div>

@@ -31,7 +31,6 @@ export const Container = ({ title, description, children }: Props) => {
             <button onClick={scrollToDetails} className="btn btn-ghost hover:bg-black btn-sm rounded-btn">
               Checkout All Characters !
             </button>
-            <a className="btn btn-ghost hover:bg-black btn-sm rounded-btn">STORY BEHIND FRIENDS</a>
             <a className="btn btn-ghost hover:bg-black hover:scale-110 btn-sm rounded-btn">
               Login With Unstoppable{' '}
               <span>

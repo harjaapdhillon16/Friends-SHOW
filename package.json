@@ -11,6 +11,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@uauth/js": "~0.7.2",
     "daisyui": "^1.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
