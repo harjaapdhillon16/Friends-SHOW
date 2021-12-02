@@ -1,0 +1,27 @@
+.characterCard {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.2, 0.4, 0.6, 1);
+  transition-duration: 300ms;
+  .ageAndTraits {
+    @apply hidden bg-black p-3 w-full absolute bottom-0 translate-y-20;
+  }
+}
+
+:hover.characterCard {
+  @apply scale-x-110 scale-y-110 z-[1000] w-[240px] md:w-auto;
+  .ageAndTraits {
+    @apply block;
+  }
+}
+
+.transformOriginLeft {
+  @media screen and (max-width: 768px) {
+    transform-origin: 100rem;
+  }
+}
+
+.transformOriginLeftPartial{
+  @media screen and (max-width: 768px) {
+    transform-origin: 60rem;
+  }
+}
