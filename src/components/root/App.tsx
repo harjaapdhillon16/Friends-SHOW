@@ -3,6 +3,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Main from '~/components/root/Main';
 
 const Loading = () => (
+  
   <div
     style={{
       backgroundImage:
@@ -16,9 +17,10 @@ const Loading = () => (
       </p>
     </div>
   </div>
-);
+); 
 
 export const App = () => {
+
   return (
     <Suspense fallback={<Loading />}>
       <HelmetProvider>

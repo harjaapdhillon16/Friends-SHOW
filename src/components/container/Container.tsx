@@ -1,4 +1,6 @@
 import { Helmet } from 'react-helmet-async';
+import UAuth from '@uauth/js';
+
 import { scrollToSmoothly } from '../../utils/smoothlyScroll';
 
 type Props = {
@@ -9,9 +11,23 @@ type Props = {
 };
 
 const SERVICE_NAME = 'FRIENDS';
-
+const uauth = new UAuth({
+  clientID: 'R4LSjs5j2Ko+wH0NDDjuHEJoywGrc2DCvdRq99mLVko=',
+  clientSecret: 'n1eKo5GQjVs0fgufBv2rur1yt1z+HUqsv7UBJ7GtEFY=',
+  redirectUri: 'http://localhost:3000/404',
+});
 export const Container = ({ title, description, children }: Props) => {
   const scrollToDetails = () => scrollToSmoothly(document.getElementById('AllCharacters')?.offsetTop || 20, 400);
+  const loginWithNFT = async()=>{
+    try{
+      const authorization =await uauth.loginWithPopup();
+      console.log(authorization)
+    }catch(err){
+      
+    }
+  }
+
+  
 
   return (
     <div>
@@ -31,13 +47,13 @@ export const Container = ({ title, description, children }: Props) => {
             <button onClick={scrollToDetails} className="btn btn-ghost hover:bg-black btn-sm rounded-btn">
               Checkout All Characters !
             </button>
-            <a className="btn btn-ghost hover:bg-black hover:scale-110 btn-sm rounded-btn">
-              Login With Unstoppable{' '}
-              <span>
-                <img className="h-4 w-4 mx-2" src="https://gitcoin.co/dynamic/avatar/unstoppabledomains" />
-              </span>{' '}
-              !
-            </a>
+            <button
+              onClick={loginWithNFT}
+              className="btn btn-ghost hover:bg-black hover:scale-110 btn-sm rounded-btn"
+            >
+              Login With Unstoppable
+              <img className="h-4 w-4 mx-2" src="https://gitcoin.co/dynamic/avatar/unstoppabledomains" />
+            </button>
           </div>
         </div>
       </div>
