@@ -13,4 +13,4 @@ harjaapdhillon.hrizn@gmail.com
 
 # HOW TO USE THE APP LOCALLY 
 GO TO src/utils/unstoppableDomain.ts file 
-At line 19 replace productions credentials with dev credentials and you'll have your app running !
+At line 19 replace productions credentials with dev credentials and then run yarn && yarn dev you'll have your app running !
