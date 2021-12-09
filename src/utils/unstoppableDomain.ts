@@ -1,5 +1,5 @@
 import UAuth from '@uauth/js';
-const isDevelopementServer = process.env.NODE_ENV === 'development';
+const isDevelopementServer = (process || { env: { NODE_ENV: 'production' } })?.env.NODE_ENV === 'development';
 
 const developmentCredentials = {
   clientID: 'qxRaA/ILJHo5WGXbo6NiWOI+FBModAIKVToTBGONEtI=',
