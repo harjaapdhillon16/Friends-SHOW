@@ -1,5 +1,10 @@
 import UAuth from '@uauth/js';
-const isDevelopementServer = (process || { env: { NODE_ENV: 'production' } })?.env.NODE_ENV === 'development';
+let isDevelopementServer;
+try {
+  isDevelopementServer = (process || { env: { NODE_ENV: 'production' } })?.env.NODE_ENV === 'development';
+} catch (err) {
+  isDevelopementServer = false;
+}
 
 const developmentCredentials = {
   clientID: 'qxRaA/ILJHo5WGXbo6NiWOI+FBModAIKVToTBGONEtI=',
