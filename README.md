@@ -4,5 +4,7 @@ Project Name : FRIENDS WEB APP
 https://github.com/harjaapdhillon16/Friends-SHOW
 # Recorded video demo of the integration
 https://www.youtube.com/watch?v=Wfpf82g0BW8
-Discord ID: harjaapdhillon#4280
-UnstoppableDomain registered account email address: harjaapdhillon.hrizn@gmail.com
+# Discord ID: 
+harjaapdhillon#4280
+# UnstoppableDomain registered account email address: 
+harjaapdhillon.hrizn@gmail.com
