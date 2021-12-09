@@ -1,11 +1,6 @@
 import UAuth from '@uauth/js';
-let isDevelopementServer;
-try {
-  isDevelopementServer = (process || { env: { NODE_ENV: 'production' } })?.env.NODE_ENV === 'development';
-} catch (err) {
-  isDevelopementServer = false;
-}
 
+// eslint-disable-next-line no-unused-vars
 const developmentCredentials = {
   clientID: 'qxRaA/ILJHo5WGXbo6NiWOI+FBModAIKVToTBGONEtI=',
   clientSecret: 'MSk1Lx/iddaggFHSNoBNCfRn4vwblWkvmVivxFYpyww=',
@@ -21,4 +16,4 @@ const productionCredentials = {
   postLogoutRedirectUri: 'https://friends-show.netlify.app/',
 };
 
-export const uauth = new UAuth(isDevelopementServer ? developmentCredentials : productionCredentials);
+export const uauth = new UAuth(productionCredentials);
