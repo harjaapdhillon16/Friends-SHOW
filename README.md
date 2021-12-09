@@ -8,3 +8,9 @@ https://www.youtube.com/watch?v=Wfpf82g0BW8
 harjaapdhillon#4280
 # UnstoppableDomain registered account email address: 
 harjaapdhillon.hrizn@gmail.com
+# WEB LINK OF PROJECT
+harjaapdhillon.hrizn@gmail.com
+
+# HOW TO USE THE APP LOCALLY 
+GO TO src/utils/unstoppableDomain.ts file 
+At line 19 replace productions credentials with dev credentials and you'll have your app running !
