@@ -8,7 +8,6 @@ const MutedSVG = ({ muted }: { muted: boolean }) => <div>{muted ? <BsVolumeMuteF
 
 export function Hero() {
   const [muted, setMuted] = useState(true);
-  console.log(document.getElementById('descriptionOfFriends')?.offsetTop);
   const scrollToDetails = () => scrollToSmoothly(document.getElementById('descriptionOfFriends')?.offsetTop || 20, 800);
 
   return (

@@ -796,10 +796,10 @@
     "@emotion/css" "^11.5.0"
     "@uauth/abstract-ui" "^0.7.0"
 
-"@uauth/js@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@uauth/js/-/js-0.7.2.tgz#686eeadb5a01e9fb99d571cf303bf7df19583d14"
-  integrity sha512-5neKEI29rZv1xygqI7qWpWK3BGjZyCWZU56OXzae7Hg8ReCdf03tohUoscU52Hn5vuD2Y1DsNsPQZ1+TEZgQCg==
+"@uauth/js@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@uauth/js/-/js-0.7.5.tgz#06e3e4ef45769c56bb4104f2e136b419ec8d28ef"
+  integrity sha512-iJymaNkWHTsHW3H2waoXDN8uShQqPSe16JjzrLDuiE8ttYEFlZb40oL9bMM3Amms8K+porJk4aVH/ZvOD0d60Q==
   dependencies:
     "@uauth/abstract-ui" "^0.7.0"
     "@uauth/common" "^0.7.0"

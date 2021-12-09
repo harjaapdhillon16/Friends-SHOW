@@ -3,7 +3,7 @@ import { IndexSummary, AllCharacters, Hero } from '../screenComponents/Index';
 
 function Index() {
   return (
-    <Container title="Home Page">
+    <Container pageTitle="AS SEEN ON NETFLIX" title="Home Page">
       <>
         <Hero />
         <IndexSummary />

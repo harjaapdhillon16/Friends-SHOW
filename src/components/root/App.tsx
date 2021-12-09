@@ -2,8 +2,7 @@ import { Suspense } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import Main from '~/components/root/Main';
 
-const Loading = () => (
-  
+export const Loading = ({ title }: any) => (
   <div
     style={{
       backgroundImage:
@@ -13,14 +12,13 @@ const Loading = () => (
   >
     <div style={{ maxWidth: '100vw' }} className="bg-black w-screen h-screen bg-opacity-80 hero-content">
       <p className="text-5xl text-red-500 font-extrabold animate-bounce italic">
-        Loading Up the Friends Experience for you !
+        {title || 'Loading Up the Friends Experience for you !'}
       </p>
     </div>
   </div>
-); 
+);
 
 export const App = () => {
-
   return (
     <Suspense fallback={<Loading />}>
       <HelmetProvider>

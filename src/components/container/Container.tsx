@@ -1,33 +1,54 @@
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import UAuth from '@uauth/js';
-
-import { scrollToSmoothly } from '../../utils/smoothlyScroll';
+import { uauth } from '../../utils/unstoppableDomain';
 
 type Props = {
   title: string;
   description?: string;
   // eslint-disable-next-line no-undef
   children?: JSX.Element;
+  pageTitle?: string;
 };
 
 const SERVICE_NAME = 'FRIENDS';
-const uauth = new UAuth({
-  clientID: 'R4LSjs5j2Ko+wH0NDDjuHEJoywGrc2DCvdRq99mLVko=',
-  clientSecret: 'n1eKo5GQjVs0fgufBv2rur1yt1z+HUqsv7UBJ7GtEFY=',
-  redirectUri: 'http://localhost:3000/404',
-});
-export const Container = ({ title, description, children }: Props) => {
-  const scrollToDetails = () => scrollToSmoothly(document.getElementById('AllCharacters')?.offsetTop || 20, 400);
-  const loginWithNFT = async()=>{
-    try{
-      const authorization =await uauth.loginWithPopup();
-      console.log(authorization)
-    }catch(err){
-      
-    }
-  }
 
-  
+export const Container = ({ title, description, children, pageTitle }: Props) => {
+  const login = async () => {
+    try {
+      await uauth.login();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const [loading, setLoading] = useState<any>(false);
+
+  const [profile, setProfile] = useState<any>(null);
+
+  const fetchUser = () => {
+    uauth
+      .user()
+      .then((data) => {
+        if (data) {
+          setProfile(data);
+        } else {
+          setProfile(false);
+        }
+      })
+      .catch((_err) => {});
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  const logout = async () => {
+    try {
+      setLoading(true);
+      await uauth.logout();
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -38,22 +59,28 @@ export const Container = ({ title, description, children }: Props) => {
         <meta property="og:description" content={description ?? `This is ${SERVICE_NAME}`} />
         <meta name="robots" content="noindex" />
       </Helmet>
-      <div className="navbar shadow-lg w-screen justify-between bg-red-500 text-neutral-content rounded-none">
-        <div className="flex-none px-2 ">
-          <span className="text-lg font-extrabold customFont">AS SEEN ON NETFLIX</span>
+      <div className="navbar overflow-hidden items-center shadow-lg w-screen justify-between bg-red-500 text-neutral-content rounded-none">
+        <div className="flex-none px-1 ">
+          <span className="text-xs font-extrabold customFont">{pageTitle}</span>
         </div>
-        <div className="items-end px-2 mx-2">
-          <div className="items-stretch hidden lg:flex">
-            <button onClick={scrollToDetails} className="btn btn-ghost hover:bg-black btn-sm rounded-btn">
-              Checkout All Characters !
-            </button>
-            <button
-              onClick={loginWithNFT}
-              className="btn btn-ghost hover:bg-black hover:scale-110 btn-sm rounded-btn"
-            >
-              Login With Unstoppable
-              <img className="h-4 w-4 mx-2" src="https://gitcoin.co/dynamic/avatar/unstoppabledomains" />
-            </button>
+        <div className="items-end px-1 mx-2">
+          <div className="items-stretch flex">
+            {profile ? (
+              <button
+                onClick={logout}
+                className={`btn btn-ghost hover:bg-black hover:scale-110 btn-sm rounded-btn ${
+                  loading ? 'animate-pulse' : ''
+                }`}
+              >
+                Logout
+                <img className="h-4 w-4 mx-2" src="https://gitcoin.co/dynamic/avatar/unstoppabledomains" />
+              </button>
+            ) : (
+              <button onClick={login} className="btn btn-ghost hover:bg-black hover:scale-110 btn-sm rounded-btn">
+                Login With Unstoppable
+                <img className="h-4 w-4 mx-2" src="https://gitcoin.co/dynamic/avatar/unstoppabledomains" />
+              </button>
+            )}
           </div>
         </div>
       </div>
